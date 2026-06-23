@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedictResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -45,8 +45,8 @@ class ProductController extends Controller
      */
     public function store(Request $request) : RedirectResponse
     {
-        $validated = $request->validate ([
-            'name' => ['requeired', 'string', 'max:255'],
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
             'category' => ['nullable', 'string', 'max:255'],
             'stock' => ['required', 'integer', 'min:0'],
             'price' => ['required', 'numeric', 'min:0'],
@@ -81,8 +81,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product) : RedirectResponse
     {
-        $validated = $request->validate ([
-            'name' => ['requeired', 'string', 'max:255'],
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
             'category' => ['nullable', 'string', 'max:255'],
             'stock' => ['required', 'integer', 'min:0'],
             'price' => ['required', 'numeric', 'min:0'],
